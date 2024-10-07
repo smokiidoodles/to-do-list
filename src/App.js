@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+// this app uses Redux to manage storage.
+import React, { useState } from 'react';
+import TodoList from './components/TodoList';
+import AddTodo from './components/AddTodo';
+import TodoCounter from './components/TodoCounter';
+import InfoModal from './components/InfoModal';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [showInfo, setShowInfo] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Redux Todo List</h1>
+        <button onClick={() => setShowInfo(true)} style={{ position: 'absolute', top: 10, left: 10 }}>
+          Info
+        </button>
+        <AddTodo />
+        <TodoList />
+        <TodoCounter />
+        <InfoModal show={showInfo} onClose={() => setShowInfo(false)} />
       </header>
     </div>
   );
-}
+};
 
 export default App;

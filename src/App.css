@@ -1,38 +1,184 @@
+
+:root {
+  --raisin-black: #212738ff;
+  --periwinkle: #adbdffff;
+  --lavender-blush: #fdececff;
+  --celadon: #b2d3a8ff;
+  --peach: #f4b393ff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--lavender-blush);
+  color: var(--raisin-black);
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header {
+  background-color: var(--periwinkle);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  transition: transform 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
+.App-header:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: var(--raisin-black);
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid var(--celadon);
+  border-radius: 5px;
+  width: 70%;
+  max-width: 400px;
+  margin-right: 10px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--peach);
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:first-of-type {
+  background-color: var(--peach);
+  color: var(--raisin-black);
+}
+
+button:last-of-type {
+  background-color: var(--celadon);
+  color: var(--raisin-black);
+}
+
+button:focus {
+  outline: none;
+}
+
+div[style*="opacity: 0.5"] {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
   from {
-    transform: rotate(0deg);
+    opacity: 1;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 0.5;
+  }
+}
+
+.TodoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--lavender-blush);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.TodoItem input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.TodoCounter {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: var(--peach);
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: var(--raisin-black);
+  font-weight: bold;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.InfoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s forwards;
+}
+
+.InfoModal-content {
+  background-color: var(--lavender-blush);
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.InfoModal h2 {
+  margin-top: 0;
+  color: var(--raisin-black);
+}
+
+.InfoModal button {
+  background-color: var(--raisin-black);
+  color: var(--lavender-blush);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
